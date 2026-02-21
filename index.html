@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>パパッと料理・計算ツール</title>
+    
+    <title>【無料】パパッと料理・計算ツール｜調味料の代用・グラム換算・レシピ人数分を一発変換</title>
+    <meta name="description" content="料理中の「アレがない！」「はかりがない！」をスマホで一発解決。甜麺醤やオイスターソースなどの代用レシピ計算、グラムから大さじへの換算、レシピの人数分一括変換、電子レンジのワット数計算がすべて無料で使えるお役立ちツールです。">
+    
+    <meta property="og:title" content="【無料】パパッと料理・計算ツール">
+    <meta property="og:description" content="調味料の代用からグラム換算、レシピの人数変換まで。料理のパニックを救う無料ツール！">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pomesaku.github.io/CookingTool/">
+    <meta name="twitter:card" content="summary">
+
     <style>
         body { font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif; background: #fffaf0; color: #4a3b32; max-width: 600px; margin: 0 auto; padding: 15px; }
         h1 { font-size: 1.3rem; text-align: center; color: #e65100; margin-bottom: 5px;}
-        p.subtitle { text-align: center; font-size: 0.85rem; color: #8d6e63; margin-bottom: 20px; }
+        p.subtitle { text-align: center; font-size: 0.85rem; color: #8d6e63; margin-bottom: 15px; }
+        .bookmark-notice { text-align: center; font-size: 0.85rem; font-weight: bold; color: #0056b3; background: #e8f4fd; padding: 8px; border-radius: 4px; margin-bottom: 20px;}
         
         .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
         .tab-btn { flex: 1 1 45%; padding: 12px 5px; background: #ffe0b2; border: none; border-radius: 8px 8px 0 0; font-size: 0.9rem; font-weight: bold; color: #d84315; cursor: pointer; transition: 0.2s; text-align: center;}
@@ -38,11 +48,20 @@
         .flex-row { display: flex; gap: 10px; align-items: center; margin-bottom: 15px;}
         .flex-row input { margin-bottom: 0; }
         optgroup { font-weight: bold; color: #e65100; background: #fffaf0;}
+
+        /* SEOテキスト用CSS */
+        .seo-text { max-width: 600px; margin: 30px auto 10px; padding: 20px; color: #666; font-size: 0.85rem; border-top: 1px solid #ddd; line-height: 1.6;}
+        .seo-text h2 { font-size: 1rem; color: #444; margin-bottom: 10px;}
+        .seo-text strong { color: #d84315; }
     </style>
 </head>
 <body>
     <h1>🍳 料理のパニック救済ツール</h1>
     <p class="subtitle">家事の「困った！」をスマホで一発解決</p>
+
+    <div class="bookmark-notice">
+        ⭐ キッチンの必需品！このページを「ブックマーク」しておいてください。
+    </div>
 
     <div class="tabs">
         <button class="tab-btn active" onclick="switchTab('tab-sub')">① 代用計算</button>
@@ -162,6 +181,16 @@
         </div>
     </div>
 
+    <div class="seo-text">
+        <h2>💡 この「料理・計算ツール」について</h2>
+        <p>当サイトは、毎日の自炊や料理中に発生する「ちょっと困った」をスマホで瞬時に解決するための無料Webアプリです。</p>
+        <p><strong>① 調味料の代用計算：</strong>甜麺醤、豆板醤、オイスターソースなど、わざわざ買いたくない・切らしてしまった調味料を、家にある基本的な調味料（味噌、醤油、砂糖など）の黄金比で代用・作成できます。<br>
+        <strong>② 人数分の一括変換：</strong>「2人前」のレシピを「5人前」で作る時など、材料の分量をワンタップで一括計算します。<br>
+        <strong>③ グラム↔大さじ換算：</strong>キッチンスケール（はかり）がない時でも、水、砂糖、塩などのグラム数から「大さじ・小さじ何杯か」を正確に割り出します。<br>
+        <strong>④ レンジのワット数（W）変換：</strong>レシピの加熱時間（500Wや600W）をご自宅の電子レンジのワット数に合わせて秒単位で自動計算します。</p>
+        <p>主婦の方や一人暮らしの自炊のお供として、面倒な計算なしでサクサクお使いいただけます。ぜひブックマーク（お気に入り登録）して毎日のクッキングにお役立てください。</p>
+    </div>
+
     <script>
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -179,7 +208,6 @@
             document.getElementById('btn-tsp').classList.remove('active');
             document.getElementById(`btn-${unit}`).classList.add('active');
 
-            // 自動入力リセット機能
             const amountInput = document.getElementById('sub-amount');
             if (unit === 'g') {
                 amountInput.value = 100;
@@ -188,8 +216,6 @@
                 amountInput.value = 1;
                 amountInput.step = 0.5;
             }
-            
-            // 切り替えたときに結果を一旦隠す（安全のため）
             document.getElementById('sub-result').style.display = 'none';
         }
         
