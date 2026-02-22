@@ -12,6 +12,12 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pomesaku.github.io/CookingTool/">
     <meta name="twitter:card" content="summary">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e65100">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <script>
+        if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js'); }); }
+    </script>
 
     <style>
         body { font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif; background: #fffaf0; color: #4a3b32; max-width: 600px; margin: 0 auto; padding: 15px; }
@@ -359,3 +365,4 @@
     </script>
 </body>
 </html>
+
